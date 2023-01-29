@@ -12,9 +12,9 @@ namespace GestionBancariaAppNS
 {
     public partial class GestionBancariaApp : Form
     {
-        private double saldo;  
-        const int ERR_CANTIDAD_NO_VALIDA = 1;
-        const int ERR_SALDO_INSUFICIENTE = 2;
+        private double saldo;
+        public const int ERR_CANTIDAD_NO_VALIDA = 1;
+        public const int ERR_SALDO_INSUFICIENTE = 2;
 
         public GestionBancariaApp(double saldo = 0)
         {

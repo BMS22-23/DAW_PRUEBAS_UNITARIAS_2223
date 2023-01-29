@@ -22,5 +22,116 @@ namespace GestionBancariaTest
             "Se produjo un error al realizar el reintegro, saldo" +
             "incorrecto.");
         }
+        [TestMethod]
+        public void ValidarReintegro1()
+        {
+            double saldoInicial = 30;
+            double reintegro = 1;
+            double saldoEsperado = saldoInicial - reintegro;
+            int salidaEsperada = 0;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro2()
+        {
+            double saldoInicial = 30;
+            double reintegro = 2;
+            double saldoEsperado = saldoInicial - reintegro;
+            int salidaEsperada = 0;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro3()
+        {
+            double saldoInicial = 30;
+            double reintegro = 30;
+            double saldoEsperado = saldoInicial - reintegro;
+            int salidaEsperada = 0;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro4()
+        {
+            double saldoInicial = 31;
+            double reintegro = 30;
+            double saldoEsperado = saldoInicial - reintegro;
+            int salidaEsperada = 0;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro5()
+        {
+            double saldoInicial = 60;
+            double reintegro = 30;
+            double saldoEsperado = saldoInicial - reintegro;
+            int salidaEsperada = 0;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro6()
+        {
+            double saldoInicial = 29;
+            double reintegro = 30;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_SALDO_INSUFICIENTE;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro7()
+        {
+            double saldoInicial = 15;
+            double reintegro = 30;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_SALDO_INSUFICIENTE;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro8()
+        {
+            double saldoInicial = 30;
+            double reintegro = -1;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro9()
+        {
+            double saldoInicial = 30;
+            double reintegro = 0;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarReintegro10()
+        {
+            double saldoInicial = 30;
+            double reintegro = -30;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+        }
+        private static void ProbarReintegro(double saldoInicial, double reintegro, double saldoEsperado, int salidaEsperada)
+        {
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            int salida = miApp.RealizarReintegro(reintegro);
+            Assert.AreEqual(salidaEsperada, salida, "Salida incorrecta.");
+            Assert.AreEqual(saldoEsperado, miApp.ObtenerSaldo(), 0.001,
+            "Se produjo un error al realizar el reintegro, saldo" +
+            "incorrecto.");
+        }
     }
 }
