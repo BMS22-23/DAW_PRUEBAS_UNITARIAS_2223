@@ -13,6 +13,7 @@ namespace GestionBancariaAppNS
     public partial class GestionBancariaApp : Form
     {
         private double saldo;
+        public const int SIN_ERR = 0;
         public const int ERR_CANTIDAD_NO_VALIDA = 1;
         public const int ERR_SALDO_INSUFICIENTE = 2;
 
@@ -36,14 +37,14 @@ namespace GestionBancariaAppNS
             if (saldo < cantidad)
                 return ERR_SALDO_INSUFICIENTE;
             saldo -= cantidad;
-            return 0;
+            return SIN_ERR;
         }
 
         public int RealizarIngreso(double cantidad) {
             if (cantidad > 0)
                 return ERR_CANTIDAD_NO_VALIDA;
             saldo -= cantidad;
-            return 0;
+            return SIN_ERR;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
