@@ -74,7 +74,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarReintegro6()
+        public void ValidarReintegroSaldoInsuficienteCaso1()
         {
             double saldoInicial = 29;
             double reintegro = 30;
@@ -85,7 +85,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarReintegro7()
+        public void ValidarReintegroSaldoInsuficienteCaso2()
         {
             double saldoInicial = 15;
             double reintegro = 30;
@@ -98,7 +98,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarReintegro8()
+        public void ValidarReintegroCantidadNoValidaCaso1()
         {
             double saldoInicial = 30;
             double reintegro = -1;
@@ -110,7 +110,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarReintegro9()
+        public void ValidarReintegroCantidadNoValidaCaso2()
         {
             double saldoInicial = 30;
             double reintegro = 0;
@@ -122,7 +122,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarReintegro10()
+        public void ValidarReintegroCantidadNoValidaCaso3()
         {
             double saldoInicial = 30;
             double reintegro = -30;
@@ -179,7 +179,7 @@ namespace GestionBancariaTest
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarIngreso4()
+        public void ValidarIngresoCantidadNoValidaCaso1()
         {
             double saldoInicial = 30;
             double ingreso = -1;
@@ -191,7 +191,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarIngreso5()
+        public void ValidarIngresoCantidadNoValidaCaso2()
         {
             double saldoInicial = 30;
             double ingreso = 0;
@@ -203,7 +203,7 @@ namespace GestionBancariaTest
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ValidarIngreso6()
+        public void ValidarIngresoCantidadNoValidaCaso3()
         {
             double saldoInicial = 30;
             double ingreso = -30;
