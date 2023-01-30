@@ -73,54 +73,64 @@ namespace GestionBancariaTest
             ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarReintegro6()
         {
             double saldoInicial = 29;
             double reintegro = 30;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_SALDO_INSUFICIENTE;
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
 
-            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+            // Método a probar
+            miApp.RealizarReintegro(reintegro);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarReintegro7()
         {
             double saldoInicial = 15;
             double reintegro = 30;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_SALDO_INSUFICIENTE;
 
-            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarReintegro(reintegro);
+
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarReintegro8()
         {
             double saldoInicial = 30;
             double reintegro = -1;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarReintegro(reintegro);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarReintegro9()
         {
             double saldoInicial = 30;
             double reintegro = 0;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarReintegro(reintegro);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarReintegro10()
         {
             double saldoInicial = 30;
             double reintegro = -30;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarReintegro(saldoInicial, reintegro, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarReintegro(reintegro);
         }
         private static void ProbarReintegro(double saldoInicial, double reintegro, double saldoEsperado, int salidaEsperada)
         {
@@ -168,34 +178,40 @@ namespace GestionBancariaTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarIngreso4()
         {
             double saldoInicial = 30;
             double ingreso = -1;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarIngreso(ingreso);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarIngreso5()
         {
             double saldoInicial = 30;
             double ingreso = 0;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarIngreso(ingreso);
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ValidarIngreso6()
         {
             double saldoInicial = 30;
             double ingreso = -30;
-            double saldoEsperado = saldoInicial;
-            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
 
-            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+            GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
+
+            // Método a probar
+            miApp.RealizarIngreso(ingreso);
         }
         private static void ProbarIngreso(double saldoInicial, double ingreso, double saldoEsperado, int salidaEsperada)
         {
