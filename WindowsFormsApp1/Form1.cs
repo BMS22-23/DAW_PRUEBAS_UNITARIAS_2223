@@ -41,9 +41,9 @@ namespace GestionBancariaAppNS
         }
 
         public int RealizarIngreso(double cantidad) {
-            if (cantidad > 0)
+            if (cantidad <= 0)
                 return ERR_CANTIDAD_NO_VALIDA;
-            saldo -= cantidad;
+            saldo += cantidad;
             return SIN_ERR;
         }
 
