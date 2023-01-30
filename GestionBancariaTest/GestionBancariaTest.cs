@@ -146,7 +146,57 @@ namespace GestionBancariaTest
 
             ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
         }
+        [TestMethod]
+        public void ValidarIngreso2()
+        {
+            double saldoInicial = 30;
+            double ingreso = 2;
+            double saldoEsperado = saldoInicial + ingreso;
+            int salidaEsperada = GestionBancariaApp.SIN_ERR;
 
+            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarIngreso3()
+        {
+            double saldoInicial = 30;
+            double ingreso = 30;
+            double saldoEsperado = saldoInicial + ingreso;
+            int salidaEsperada = GestionBancariaApp.SIN_ERR;
+
+            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+        }
+
+        [TestMethod]
+        public void ValidarIngreso4()
+        {
+            double saldoInicial = 30;
+            double ingreso = -1;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarIngreso5()
+        {
+            double saldoInicial = 30;
+            double ingreso = 0;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+        }
+        [TestMethod]
+        public void ValidarIngreso6()
+        {
+            double saldoInicial = 30;
+            double ingreso = -30;
+            double saldoEsperado = saldoInicial;
+            int salidaEsperada = GestionBancariaApp.ERR_CANTIDAD_NO_VALIDA;
+
+            ProbarIngreso(saldoInicial, ingreso, saldoEsperado, salidaEsperada);
+        }
         private static void ProbarIngreso(double saldoInicial, double ingreso, double saldoEsperado, int salidaEsperada)
         {
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
